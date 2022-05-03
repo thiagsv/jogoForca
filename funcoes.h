@@ -54,7 +54,8 @@ void opcoesDicionario(FILE *dicionario) {
         scanf("%d", &opcaoDicionario);
     }
 
-    if(opcaoDicionario == 3) {
+    if(opcaoDicionario == 3) { //fecha o arquivo, limpa o terminal e exibe o menu
+        fclose(dicionario);
         limpaTerminalEExibeMenu();
     }
 }

@@ -20,7 +20,7 @@ int main(void) {
         opcoesDicionario(dicionario);
     }
 
-    fclose(dicionario);
+   
 
     return 0;
 }               
