@@ -11,6 +11,16 @@ int imprimeMenu() {
     return opcao;
 }
 
+int quantidadeCaracteresArquivo(FILE *dicionario) { //retorna quantidade de caracteres do dicionario
+    int count = 1;
+
+    while(!feof(dicionario)) {
+        count++;
+	}
+
+    return count;
+}
+
 void opcoesDicionario(FILE *dicionario) {
     int opcaoDicionario;
     char caracteres[100000000];
@@ -19,7 +29,7 @@ void opcoesDicionario(FILE *dicionario) {
     printf("1 - Ver dicionário\n2 - Inserir nova palavra\n3 - Voltar ao menu anterior: ");
     scanf("%d", &opcaoDicionario);
 
-    while(opcaoDicionario != 1 || opcaoDicionario != 2 ||opcaoDicionario != 3) { //prevenção de erros
+    while(opcaoDicionario < 1 || opcaoDicionario > 3) { //prevenção de erros
         printf("Por favor, digite um número válido!: ");
         scanf("%d", &opcaoDicionario);
     }
@@ -37,16 +47,16 @@ void opcoesDicionario(FILE *dicionario) {
             char significado[10000];
 
             printf("Digite a palavra desejada (caso queira sair digite 0): ");
-            scanf("%s", &palavra);
+            scanf("%s", palavra);
 
             while (palavra[0] != '0') {
                 printf("Digite o siginificado da palavra resumida (máx: 10000 carcteres)): ");
-                scanf("%s", &significado);
+                scanf("%s", significado);
                 fputs(palavra, dicionario);
                 fputs(" - ", dicionario);
                 fputs(significado, dicionario);
                 printf("Digite a palavra desejada (caso queira sair digite 0): ");
-                scanf("%s", &palavra);
+                scanf("%s", palavra);
             }
         }
 
@@ -58,16 +68,6 @@ void opcoesDicionario(FILE *dicionario) {
         fclose(dicionario);
         limpaTerminalEExibeMenu();
     }
-}
-
-int quantidadeCaracteresArquivo(FILE *dicionario) { //retorna quantidade de caracteres do dicionario
-    int count = 1;
-
-    while(!feof(dicionario)) {
-        count++;
-	}
-
-    return count;
 }
 
 void limpaTerminalEExibeMenu() {

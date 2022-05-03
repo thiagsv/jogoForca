@@ -20,7 +20,5 @@ int main(void) {
         opcoesDicionario(dicionario);
     }
 
-   
-
     return 0;
 }               
